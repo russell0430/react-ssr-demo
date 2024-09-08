@@ -1,0 +1,8 @@
+.home {
+  height: 100vh;
+  .header {
+    height: 64px;
+    color: darkgoldenrod;
+    background-color: bisque;
+  }
+}

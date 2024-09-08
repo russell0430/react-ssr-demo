@@ -1,4 +1,4 @@
-const common = require("./webpack.common")
+const common = require("./webpack.common.cjs")
 const { Configuration } = require("webpack")
 /**
  * @type Configuration

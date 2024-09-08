@@ -1,6 +1,7 @@
 const { Configuration } = require("webpack")
 const path = require("path")
-const htmlWebpackPlugin =require("html-webpack-plugin")
+const ReactSSRWebpackPlugin = require("../src/react-ssr-html-webpack-plugin.cjs")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 /**
  * @type Configuration
  */
@@ -15,15 +16,29 @@ const common = {
   resolve: {
     extensions: [".json", ".js", ".jsx", ".ts", ".tsx"],
   },
-  plugins:[new htmlWebpackPlugin({template:path.resolve(__dirname,"../src/index.html")})],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "react ssr",
+
+      template: path.resolve(__dirname, "../src/index.html"),
+    }),
+  ],
   module: {
     rules: [
       {
-        test: /.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /(\.module)?\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+        ],
       },
       {
-        test: /.(ts|tsx|js|jsx)$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         use: ["babel-loader"],
       },
     ],

@@ -17,3 +17,9 @@
 - react route 相应路由处理
 - 服务端渲染携带 css，以及是否会冗余 
 
+
+## solved
+
+react-routes 处理
+可以将页面分为多个部分，一部分脱水注水（header）；一部分使用 csp 模式（content），从空节点开始渲染
+

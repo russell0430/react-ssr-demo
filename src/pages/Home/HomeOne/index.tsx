@@ -15,7 +15,7 @@ const HomeOne: React.FC<{ ref1?: { current: HTMLDivElement | null } }> = ({
         ref={ref1}
         onClick={() => setState((v) => v + 1)}
       >
-        hello{state}
+        hello page one1{state}
       </div>
     </div>
   )

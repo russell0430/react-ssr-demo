@@ -1,4 +1,8 @@
-import { RouteObject, Navigate } from "react-router-dom"
+import {
+  RouteObject,
+  Navigate,
+  useRoutes as $useRoutes,
+} from "react-router-dom"
 import Home from "../pages/Home"
 import PageOne from "../pages/PageOne"
 import React from "react"
@@ -21,3 +25,4 @@ const routes: RouteObject[] = [
 ]
 
 export default routes
+

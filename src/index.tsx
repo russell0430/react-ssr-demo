@@ -4,13 +4,29 @@ import App from "./App"
 import { BrowserRouter, Router } from "react-router-dom"
 import HomeOne from "./pages/Home/HomeOne"
 import { renderToString } from "react-dom/server"
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <BrowserRouter>
-//       <App />
-//     </BrowserRouter>
-//   </React.StrictMode>,
-//   document.getElementById("app")
-// )
+import Content from "./pages/Home/Content"
+import Header from "./components/Header"
+import Layout from "./Layout"
+import routes from "./routes"
+ReactDOM.render(
+  <React.StrictMode>
+    <Layout
+      header={<Header />}
+      content={
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      }
+    />
+  </React.StrictMode>,
+  document.getElementById("container")
+)
+console.log(renderToString(<Header />))
 // console.log(renderToString(<HomeOne />))
-ReactDOM.hydrate(<HomeOne />, document.getElementById("container"))
+ReactDOM.hydrate(<Header />, document.getElementById("header"))
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("container")
+)
